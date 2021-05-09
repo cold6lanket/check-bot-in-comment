@@ -1,10 +1,16 @@
-const targetWords = ['see my story'];
+const targetWords = [
+    'see my story', 
+    'Where is my friends', 
+    'How do you manage to look so gorgeous everytime?', 
+    'he evening for a pretty girl', 
+    'whô ís bôred? Im wåítinḡ fôr ýoů!'
+];
 
 function selectComments(body) {
     const ulElements = document.querySelectorAll(`${body}`);
     let arr = [];
 
-    [...ulElements].forEach(element => {
+    [...ulElements].forEach((element) => {
         const text = element.innerText;
         const index = text.lastIndexOf('\n');
         const newText = text.slice(0, index);
@@ -38,5 +44,25 @@ function createEachUser(arr) {
 
 const comments = selectComments('.Mr508');
 
+createEachUser(comments).filter((element) => {
+    let arr = [];
+    let newobj = {};
 
-createEachUser(comments);
+    const targetComment = element.comment;
+    const targetUser = element.username;
+
+    for (let i = 0; i < targetWords.length; i++) {
+        const potential = targetComment.includes(`${targetWords[i]}`);
+
+        if (potential) {
+            newobj.username = targetUser;
+            newobj.comment = targetComment;
+    
+            arr.push(newobj);
+    
+            return arr;
+        }
+    }
+
+    return; 
+});
