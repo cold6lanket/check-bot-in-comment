@@ -1,9 +1,11 @@
 const targetWords = [
     'see my story', 
-    'Where is my friends', 
-    'How do you manage to look so gorgeous everytime?', 
+    'where is my friends', 
+    'how do you manage to look so gorgeous everytime?', 
     'he evening for a pretty girl', 
-    'whô ís bôred? Im wåítinḡ fôr ýoů!'
+    'yöu wíll líkę',
+    'beautiful',
+    'can I help you?',
 ];
 
 function selectComments(body) {
@@ -19,7 +21,7 @@ function selectComments(body) {
     });
 
     //this gives an array of texts
-    return arr;
+    return createEachUser(arr);
 }
 
 
@@ -39,30 +41,28 @@ function createEachUser(arr) {
         obj.push(newobj);
     });
 
-    return obj;
+    return obj.filter((element) => {
+        const {comment, username} = element;
+        let arrPotential = [];
+        let newobjPotential = {};
+    
+        for (let i = 0; i < targetWords.length; i++) {
+            const potential = comment
+                                .toLowerCase()
+                                .includes(`${targetWords[i]}`);
+    
+            if (potential) {
+                newobjPotential.username = username;
+                newobjPotential.comment = comment;
+        
+                arrPotential.push(newobjPotential);
+        
+                return arrPotential;
+            }
+        }
+    
+        return; 
+    });
 }
 
-const comments = selectComments('.Mr508');
-
-createEachUser(comments).filter((element) => {
-    let arr = [];
-    let newobj = {};
-
-    const targetComment = element.comment;
-    const targetUser = element.username;
-
-    for (let i = 0; i < targetWords.length; i++) {
-        const potential = targetComment.includes(`${targetWords[i]}`);
-
-        if (potential) {
-            newobj.username = targetUser;
-            newobj.comment = targetComment;
-    
-            arr.push(newobj);
-    
-            return arr;
-        }
-    }
-
-    return; 
-});
+selectComments('.Mr508');
