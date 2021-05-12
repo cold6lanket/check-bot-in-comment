@@ -1,11 +1,11 @@
 const targetWords = [
-    'see my story', 
-    'where is my friends', 
-    'how do you manage to look so gorgeous everytime?', 
-    'he evening for a pretty girl', 
-    'yöu wíll líkę',
-    'beautiful',
-    'can I help you?',
+    'link', 
+    'cash', 
+    'money', 
+    '$', 
+    'story',
+    'invest',
+    'trade',
 ];
 
 function selectComments(body) {
