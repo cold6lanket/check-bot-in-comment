@@ -1,6 +1,6 @@
 # check-bot-in-comment
 A spam bot is a computer program that helps to spread spam across the Internet. Spam bots often scrape contact information, create fake user accounts, or operate stolen social media accounts.
-Nowadays bots are everywhere when you look at the comments. So, in order to identify and group them into a set of array, that script was written.
+Nowadays bots are everywhere when you look at the comments. So, in order to identify and group them into a set of array, this script might come in handy.
 Anyone who wants contribute against fight with bots, you are welcome to change as well as modify the script.
 
 ## usage
